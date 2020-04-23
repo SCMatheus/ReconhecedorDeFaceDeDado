@@ -5,4 +5,4 @@ Foi feito para a avaliação N1 do professor Arlindo da Puc Goiás da disciplina
 
 # Exemplo
 
-<img src="exemplo.png">
+<img src="teste.gif">
