@@ -1,7 +1,8 @@
 clc
-obj = VideoReader('VideoDado4.mp4');
+obj = VideoReader('VideoDado3.mp4');
 numFrames = obj.NumberOfFrames;
-janela = 80;
+janela = 50;
+limiar = 100;
  for k=1:(numFrames-2)
 
     IM = read(obj,k);
@@ -38,9 +39,10 @@ janela = 80;
 
 			[im2 bi bj] = regiaoInteresse(im,janela,janela);
             imfinal = rgb2gray(im2);
-            imfinal = imfinal > 75;
+            imfinal = imfinal > limiar;
+            imfinal = imresize(imfinal,2);
             subplot(2,1,2);imshow(imfinal);title('Input Video-Image')
-            [centersDark, radiiDark] = imfindcircles(imfinal,[4 13],'ObjectPolarity','dark');
+            [centersDark, radiiDark] = imfindcircles(imfinal,[6 14],'ObjectPolarity','dark');
             viscircles(centersDark, radiiDark,'Color','b');
     end
         subplot(2,1,1);imshow(FRAME2);title('Input Video-Image')
